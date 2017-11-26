@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "969749237728",
+    "firebase_url": "https://medcard-3f85d.firebaseio.com",
+    "project_id": "medcard-3f85d",
+    "storage_bucket": "medcard-3f85d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969749237728:android:d2c987ec48bd9ebc",
+        "android_client_info": {
+          "package_name": "com.catandowl.medcardpatient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "969749237728-jm2b0daouhdcqli1t8seqmsmfsl02op2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDj9O9rhDWpUPBbflMSFu8yikHpZ2V3qBI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
