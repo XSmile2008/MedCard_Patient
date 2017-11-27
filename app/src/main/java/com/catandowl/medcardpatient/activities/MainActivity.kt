@@ -1,7 +1,8 @@
-package com.catandowl.medcardpatient
+package com.catandowl.medcardpatient.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.catandowl.medcardpatient.R
 
 class MainActivity : AppCompatActivity() {
 
