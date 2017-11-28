@@ -68,6 +68,9 @@ dependencies {
     implementation "com.google.firebase:firebase-auth:$googleServicesVersion"
     implementation "com.google.android.gms:play-services-auth:$googleServicesVersion"
 
+    //Data binding
+    kapt "com.android.databinding:compiler:$tools_version"
+
     //Dagger
     implementation "com.google.dagger:dagger:$daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
