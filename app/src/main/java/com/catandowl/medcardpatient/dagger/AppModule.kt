@@ -2,6 +2,7 @@ package com.catandowl.medcardpatient.dagger
 
 import android.app.Application
 import android.content.Context
+import com.catandowl.medcardpatient.viewmodels.factory.ViewModelFactory
 import dagger.Module
 import dagger.Provides
 import ru.terrakok.cicerone.Cicerone
@@ -23,6 +24,10 @@ class AppModule(private val app: Application) {
     @Provides
     @Singleton
     fun provideContext(): Context = app
+
+    @Provides
+    @Singleton
+    fun  provideViewModelFactory() = ViewModelFactory()
 
     @Provides
     @Singleton
