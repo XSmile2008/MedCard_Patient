@@ -9,7 +9,7 @@ import com.catandowl.medcardpatient.events.NavigationEvent
 import com.google.firebase.auth.FirebaseAuth
 
 /**
- * Created by vladstarikov on 11/27/17.
+ * Created by vladstarikov on 11/27/17
  */
 class SignUpViewModel(val auth: FirebaseAuth) : BaseViewModel() {
 
@@ -17,7 +17,7 @@ class SignUpViewModel(val auth: FirebaseAuth) : BaseViewModel() {
         private val TAG = SignUpViewModel::class.java.simpleName
     }
 
-    val email = ObservableField<String>("tako@burito.com")
+    val email = ObservableField<String>()
     val password = ObservableField<String>()
     val passwordConfirm = ObservableField<String>()
     val progressBarVisibility = ObservableInt(View.GONE)

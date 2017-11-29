@@ -18,7 +18,7 @@ class SignInViewModel(val auth: FirebaseAuth) : BaseViewModel() {
         private val TAG = SignInViewModel::class.java.simpleName
     }
 
-    val email = ObservableField<String>("tako@burito.com")
+    val email = ObservableField<String>()
     val password = ObservableField<String>()
     val progressBarVisibility = ObservableInt(View.GONE)
 

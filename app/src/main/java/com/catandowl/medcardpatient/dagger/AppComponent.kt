@@ -2,6 +2,7 @@ package com.catandowl.medcardpatient.dagger
 
 import com.catandowl.medcardpatient.AppClass
 import com.catandowl.medcardpatient.activities.BaseActivity
+import com.catandowl.medcardpatient.activities.MainActivity
 import com.catandowl.medcardpatient.viewmodels.SplashViewModel
 import com.catandowl.medcardpatient.viewmodels.factory.ViewModelFactory
 import dagger.Component
@@ -22,6 +23,7 @@ interface AppComponent {
     //Activities
 
     fun inject(baseActivity: BaseActivity)
+    fun inject(mainActivity: MainActivity)
 
     //Fragments
 

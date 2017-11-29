@@ -4,6 +4,7 @@ import android.app.Application
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import com.catandowl.medcardpatient.AppClass
+import com.catandowl.medcardpatient.viewmodels.MainViewModel
 import com.catandowl.medcardpatient.viewmodels.SignInViewModel
 import com.catandowl.medcardpatient.viewmodels.SignUpViewModel
 import com.catandowl.medcardpatient.viewmodels.SplashViewModel
@@ -27,6 +28,7 @@ class ViewModelFactory : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T = when {
+        modelClass.isAssignableFrom(MainViewModel::class.java) -> MainViewModel(auth) as T
         modelClass.isAssignableFrom(SignInViewModel::class.java) -> SignInViewModel(auth) as T
         modelClass.isAssignableFrom(SignUpViewModel::class.java) -> SignUpViewModel(auth) as T
         modelClass.isAssignableFrom(SplashViewModel::class.java) -> SplashViewModel(auth) as T
