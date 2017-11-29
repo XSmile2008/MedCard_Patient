@@ -1,8 +1,11 @@
 package com.catandowl.medcardpatient.viewmodels
 
 import android.app.Application
+import android.text.TextUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
@@ -22,14 +25,16 @@ class SplashViewModelTest {
     @Mock
     private lateinit var auth: FirebaseAuth
 
-    @Mock
-    private lateinit var user: FirebaseUser
-
     @Test
     fun checkCreate() {
         `when`(auth.currentUser).thenReturn(null)
         SplashViewModel(application, auth)
         verify(auth).currentUser
-//        verify(application).startActivity(eq(Intent(application, SignInActivity::class.java)))
+    }
+
+    @Test
+    fun check() {
+        assertTrue(TextUtils.equals("a", "a"))
+        assertFalse(TextUtils.equals("a", "b"))
     }
 }

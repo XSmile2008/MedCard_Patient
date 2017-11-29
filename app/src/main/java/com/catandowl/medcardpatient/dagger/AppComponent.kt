@@ -12,7 +12,7 @@ import javax.inject.Singleton
  */
 
 @Singleton
-@Component(modules = arrayOf(AppModule::class, FirebaseModule::class))
+@Component(modules = [AppModule::class, FirebaseModule::class])
 interface AppComponent {
     //Application
 
