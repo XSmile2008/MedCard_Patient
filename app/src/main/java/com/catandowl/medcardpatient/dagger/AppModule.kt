@@ -2,6 +2,7 @@ package com.catandowl.medcardpatient.dagger
 
 import android.app.Application
 import android.content.Context
+import com.catandowl.medcardpatient.utils.ToastUtils
 import com.catandowl.medcardpatient.viewmodels.factory.ViewModelFactory
 import dagger.Module
 import dagger.Provides
@@ -40,4 +41,8 @@ class AppModule(private val app: Application) {
     @Provides
     @Singleton
     fun provideRouter(cicerone: Cicerone<Router>): Router = cicerone.router
+
+    @Provides
+    @Singleton
+    fun provideToastUtisl(context: Context) = ToastUtils(context)
 }
