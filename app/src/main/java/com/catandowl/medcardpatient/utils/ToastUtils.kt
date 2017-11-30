@@ -3,11 +3,14 @@ package com.catandowl.medcardpatient.utils
 import android.content.Context
 import android.support.annotation.StringRes
 import android.widget.Toast
+import javax.inject.Inject
+import javax.inject.Singleton
 
 /**
  * Created by vladstarikov on 11/28/17.
  */
-class ToastUtils(private val context: Context) {
+@Singleton
+class ToastUtils @Inject constructor(private val context: Context) {
 
     fun showToast(@StringRes resId: Int) {
         Toast.makeText(context, resId, Toast.LENGTH_SHORT).show()

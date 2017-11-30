@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="doctor"
+            type="com.catandowl.medcardpatient.entities.Doctor" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{doctor.firstName}"
+            tool:text="Tako" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{doctor.middleName}"
+            tool:text="Burito" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{doctor.lastName}"
+            tool:text="Nachos" />
+    </LinearLayout>
+</layout>

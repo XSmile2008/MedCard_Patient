@@ -4,6 +4,8 @@ import android.app.Activity
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.widget.Toast
+import com.catandowl.medcardpatient.enums.Screen
+import com.catandowl.medcardpatient.fragments.DoctorsFragment
 import ru.terrakok.cicerone.android.SupportFragmentNavigator
 
 /**
@@ -11,10 +13,9 @@ import ru.terrakok.cicerone.android.SupportFragmentNavigator
  */
 class MainNavigator(val activity: Activity, fragmentManager: FragmentManager, containerId: Int) : SupportFragmentNavigator(fragmentManager, containerId) {
 
-    override fun createFragment(screenKey: String?, data: Any?): Fragment {
-        when (screenKey) {
-            else -> TODO("not implemented")
-        }
+    override fun createFragment(screenKey: String?, data: Any?): Fragment = when (screenKey) {
+        Screen.DOCTORS.name -> DoctorsFragment()
+        else -> TODO("not implemented")
     }
 
     override fun exit() {

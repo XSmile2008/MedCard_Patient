@@ -5,5 +5,5 @@ package com.catandowl.medcardpatient.enums
  */
 enum class Screen {
 
-    HUMANS
+    DOCTORS
 }

@@ -9,8 +9,12 @@ import android.support.v7.app.ActionBarDrawerToggle
 import com.catandowl.medcardpatient.AppClass
 import com.catandowl.medcardpatient.R
 import com.catandowl.medcardpatient.databinding.ActivityMainBinding
+import com.catandowl.medcardpatient.enums.Screen
+import com.catandowl.medcardpatient.fragments.DoctorsFragment
+import com.catandowl.medcardpatient.navigators.MainNavigator
 import com.catandowl.medcardpatient.viewmodels.MainViewModel
 import kotlinx.android.synthetic.main.layout_toolbar.*
+import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.Router
 import javax.inject.Inject
@@ -22,6 +26,8 @@ class MainActivity : BaseActivity() {
 
     @Inject
     lateinit var navigationHolder: NavigatorHolder
+
+    private val navigator: Navigator = MainNavigator(this, supportFragmentManager, R.id.container)
 
     private lateinit var viewModel: MainViewModel
     private lateinit var binding: ActivityMainBinding
@@ -36,11 +42,18 @@ class MainActivity : BaseActivity() {
                     startActivity(Intent(this, it.clazz).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK))
                     finish()
                 }
+                DoctorsFragment::class.java -> {
+                    router.navigateTo(Screen.DOCTORS.name)
+                }
             }
         })
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.navigation.setNavigationItemSelectedListener {
             when (it.itemId) {
+                R.id.action_show_doctors -> {
+                    viewModel.onShowDoctorsAction()
+                    true
+                }
                 R.id.action_logout -> {
                     viewModel.onLogoutAction()
                     true
@@ -51,6 +64,10 @@ class MainActivity : BaseActivity() {
 
         val toggle = ActionBarDrawerToggle(this, binding.drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         toggle.syncState()
+
+        if (savedInstanceState == null) {
+            router.newRootScreen(Screen.DOCTORS.name)
+        }
     }
 
     override fun onContentChanged() {
@@ -58,5 +75,15 @@ class MainActivity : BaseActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        navigationHolder.setNavigator(navigator)
+    }
+
+    override fun onPause() {
+        navigationHolder.removeNavigator()
+        super.onPause()
     }
 }

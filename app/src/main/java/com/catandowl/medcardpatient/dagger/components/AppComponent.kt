@@ -1,8 +1,10 @@
-package com.catandowl.medcardpatient.dagger
+package com.catandowl.medcardpatient.dagger.components
 
 import com.catandowl.medcardpatient.AppClass
 import com.catandowl.medcardpatient.activities.BaseActivity
 import com.catandowl.medcardpatient.activities.MainActivity
+import com.catandowl.medcardpatient.dagger.modules.AppModule
+import com.catandowl.medcardpatient.dagger.modules.FirebaseModule
 import com.catandowl.medcardpatient.fragments.BaseFragment
 import com.catandowl.medcardpatient.viewmodels.SplashViewModel
 import com.catandowl.medcardpatient.viewmodels.factory.ViewModelFactory
@@ -31,10 +33,6 @@ interface AppComponent {
 
 
     //ViewModels
-    fun inject(viewModelFactory: ViewModelFactory)
-
-    fun inject(splashViewModel: SplashViewModel)
-
 
     //Other
 

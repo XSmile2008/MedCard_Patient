@@ -1,9 +1,9 @@
 package com.catandowl.medcardpatient
 
 import android.app.Application
-import com.catandowl.medcardpatient.dagger.AppComponent
-import com.catandowl.medcardpatient.dagger.AppModule
-import com.catandowl.medcardpatient.dagger.DaggerAppComponent
+import com.catandowl.medcardpatient.dagger.components.AppComponent
+import com.catandowl.medcardpatient.dagger.modules.AppModule
+import com.catandowl.medcardpatient.dagger.components.DaggerAppComponent
 
 /**
  * Created by vladstarikov on 11/27/17.
