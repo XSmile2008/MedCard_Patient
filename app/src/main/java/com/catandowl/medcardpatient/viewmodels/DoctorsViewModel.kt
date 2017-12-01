@@ -1,9 +1,11 @@
 package com.catandowl.medcardpatient.viewmodels
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
+import android.databinding.ObservableArrayList
 import android.util.Log
+import com.catandowl.medcardpatient.consts.DOCTOR_ID
 import com.catandowl.medcardpatient.entities.Doctor
+import com.catandowl.medcardpatient.events.NavigationEvent
+import com.catandowl.medcardpatient.fragments.DoctorDetailsFragment
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 
@@ -16,19 +18,16 @@ class DoctorsViewModel(firestore: FirebaseFirestore) : BaseViewModel() {
         val TAG: String = DoctorsViewModel::class.java.simpleName
     }
 
-    private val doctors = MutableLiveData<List<Doctor>>()
-    fun getDoctors(): LiveData<List<Doctor>> = doctors
+    private val doctors = ObservableArrayList<Doctor>()
+    fun getDoctors(): List<Doctor> = doctors
 
     private var doctorsRegistration: ListenerRegistration?
 
     init {
         doctorsRegistration = firestore.collection("doctors").addSnapshotListener({ snapshot, e ->
             if (e == null) {
-                try {
-                    doctors.postValue(snapshot.documents.map { it.toObject(Doctor::class.java) })
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
+                doctors.clear()
+                doctors.addAll(snapshot.documents.map { it.toObject(Doctor::class.java) })
                 Log.d(TAG, snapshot?.documents?.toString())
             } else {
                 Log.w(TAG, e)
@@ -39,5 +38,9 @@ class DoctorsViewModel(firestore: FirebaseFirestore) : BaseViewModel() {
     override fun onCleared() {
         doctorsRegistration?.remove()
         super.onCleared()
+    }
+
+    fun onItemClicked(doctor: Doctor) {
+        navigation.postValue(NavigationEvent(DoctorDetailsFragment::class.java, mapOf(DOCTOR_ID to "asdfsadf")))
     }
 }

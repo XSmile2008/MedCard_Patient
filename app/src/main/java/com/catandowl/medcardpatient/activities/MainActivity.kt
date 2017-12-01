@@ -35,6 +35,8 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AppClass.component.inject(this)
+
+        //ViewModel
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
         viewModel.getNavigation().observe(this, Observer {
             when (it?.clazz) {
@@ -47,6 +49,8 @@ class MainActivity : BaseActivity() {
                 }
             }
         })
+
+        //Data binding
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.navigation.setNavigationItemSelectedListener {
             when (it.itemId) {

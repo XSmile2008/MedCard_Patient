@@ -3,13 +3,17 @@ package com.catandowl.medcardpatient.fragments
 import android.content.Context
 import android.support.v4.app.Fragment
 import com.catandowl.medcardpatient.AppClass
+import com.catandowl.medcardpatient.utils.ToastUtils
 import com.catandowl.medcardpatient.viewmodels.factory.ViewModelFactory
 import javax.inject.Inject
 
 /**
  * Created by vladstarikov on 11/30/17.
  */
-open class BaseFragment: Fragment() {
+abstract class BaseFragment: Fragment() {
+
+    @Inject
+    lateinit var toastUtils: ToastUtils
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
